@@ -1,15 +1,17 @@
-import { Injectable, Class }            from '@angular/core';
 import { UIRouterModule, UIRouter }     from "ui-router";
 
 import { LoginComponent }               from "./components/login.component";
 import { SignUpComponent }              from "./components/sign-up.component";
 
-
-let RouterConfig = Class({
-    constructor: [UIRouter, function (uiRouter) {
+class RouterConfig  {
+    constructor(uiRouter) {
         uiRouter.urlRouterProvider.otherwise(() => uiRouter.stateService.go('login'));
-    }]
-});
+    }
+
+    static get parameters() {
+        return [[UIRouter]];
+    }
+}
 
 const appRoutes = {
     states: [{
