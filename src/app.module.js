@@ -7,6 +7,7 @@ import { AppComponent }         from './app.component';
 import { LoginComponent }       from './components/login.component';
 import { SignUpComponent }      from './components/sign-up.component';
 
+
 import { routing }              from './app.routing';
 
 export class AppModule {

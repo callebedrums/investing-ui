@@ -1,34 +1,24 @@
-import { UIRouterModule, UIRouter }     from "ui-router";
+import { RouterModule }             from '@angular/router';
 
-import { LoginComponent }               from "./components/login.component";
-import { SignUpComponent }              from "./components/sign-up.component";
+import { LoginComponent }           from "./components/login.component";
+import { SignUpComponent }          from "./components/sign-up.component";
 
-class RouterConfig  {
-    constructor(uiRouter) {
-        uiRouter.urlRouterProvider.otherwise(() => uiRouter.stateService.go('login'));
-    }
-
-    static get parameters() {
-        return [[UIRouter]];
-    }
-}
-
-const appRoutes = {
-    states: [{
-        name: 'index',
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-    }, {
-        name: 'login',
-        url: '/login',
+const appRoutes = [
+    {
+        path: 'login',
         component: LoginComponent
     }, {
-        name: 'sign-up',
-        url: '/sign-up',
+        path: 'sign-up',
         component: SignUpComponent
-    }],
-    configClass: RouterConfig
-};
+    }, {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: 'login'
+    }
+];
 
-export const routing = UIRouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes);
