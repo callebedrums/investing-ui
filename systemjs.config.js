@@ -19,6 +19,8 @@
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
+            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+
             'rxjs': 'npm:rxjs',
 
             'plugin-babel': 'npm:systemjs-plugin-babel/plugin-babel.js',

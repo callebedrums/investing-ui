@@ -5,7 +5,7 @@ export class AppComponent {
         return [
             new Component({
                 selector: 'app',
-                template: '<h1>Testing</h1><router-outlet></router-outlet>'
+                template: '<router-outlet></router-outlet>'
             })
         ];
     }
