@@ -5,7 +5,7 @@ export class LoginComponent {
         return [
             new Component({
                 selector: 'login',
-                template: '<h1>Login</h1>'
+                templateUrl: 'src/components/login/login.component.html'
             })
         ];
     }
