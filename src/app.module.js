@@ -9,13 +9,20 @@ import { routing }                      from './app.routing';
 import { LoginComponent }               from './components/login/login.component';
 import { SignUpComponent }              from './components/sign-up/sign-up.component';
 import { PasswordRecoveryComponent }    from './components/password-recovery/password-recovery.component';
+import { AccountActivationComponent }   from './components/account-activation/account-activation.component';
 
 export class AppModule {
     static get annotations() {
         return [
             new NgModule({
                 imports: [BrowserModule, FormsModule, NgbModule.forRoot(), routing],
-                declarations: [AppComponent, LoginComponent, SignUpComponent, PasswordRecoveryComponent],
+                declarations: [
+                    AppComponent,
+                    LoginComponent,
+                    SignUpComponent,
+                    PasswordRecoveryComponent,
+                    AccountActivationComponent
+                ],
                 bootstrap: [AppComponent]
             })
         ];
