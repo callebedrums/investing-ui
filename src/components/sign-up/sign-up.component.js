@@ -4,8 +4,7 @@ export class SignUpComponent {
     static get annotations() {
         return [
             new Component({
-                selector: 'sign-up',
-                template: '<h1>Sign Up</h1>'
+                templateUrl: 'src/components/sign-up/sign-up.component.html'
             })
         ];
     }

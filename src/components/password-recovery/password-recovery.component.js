@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-export class LoginComponent {
+export class PasswordRecoveryComponent {
     static get annotations() {
         return [
             new Component({
-                templateUrl: 'src/components/login/login.component.html'
+                templateUrl: 'src/components/password-recovery/password-recovery.component.html'
             })
         ];
     }

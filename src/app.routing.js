@@ -1,7 +1,8 @@
-import { RouterModule }             from '@angular/router';
+import { RouterModule }                 from '@angular/router';
 
-import { LoginComponent }           from "./components/login/login.component";
-import { SignUpComponent }          from "./components/sign-up/sign-up.component";
+import { LoginComponent }               from "./components/login/login.component";
+import { SignUpComponent }              from "./components/sign-up/sign-up.component";
+import { PasswordRecoveryComponent }    from "./components/password-recovery/password-recovery.component";
 
 const appRoutes = [
     {
@@ -11,13 +12,16 @@ const appRoutes = [
         path: 'sign-up',
         component: SignUpComponent
     }, {
+        path: 'password-recovery',
+        component: PasswordRecoveryComponent
+    }, {
         path: '',
-        redirectTo: 'login',
+        redirectTo: '/login',
         pathMatch: 'full'
     },
     {
         path: '**',
-        redirectTo: 'login'
+        redirectTo: '/login'
     }
 ];
 
