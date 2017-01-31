@@ -1,9 +1,9 @@
 /**
  * System configuration for Investing UI App
  * */
-(function (global) {
+((global) => {
 
-    __karma__.loaded = function(){};
+    __karma__.loaded = () => {};
 
     System.config({
 
@@ -44,15 +44,28 @@
                 defaultExtension: 'js'
             }
         },
-        
+
         defaultJSExtensions: true
     });
 
-    System.import("test/test-test.js").then(function () {
-        console.log("loaded file");
+    let filterTestFiles = (path) => {
+        return /\/base\/test\/.*\.spec\.js$/.test(path);
+    };
+
+    let importTestFiles = (path) =>{
+        return System.import(path);
+    };
+
+    let loadTestFiles = () => {
+        return Object
+            .keys(__karma__.files)
+            .filter(filterTestFiles)
+            .map(importTestFiles);
+    };
+
+    Promise.all(loadTestFiles()).then(() => {
         __karma__.start();
-    }).catch(function (err) {
-        console.log('error loading file', err);
+    }, () => {
         __karma__.start();
     });
 })(this);
