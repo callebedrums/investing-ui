@@ -7,7 +7,7 @@
 
     System.config({
 
-        baseURL: '/base/',
+        baseURL: '/',
 
         paths: {
             'npm:': 'node_modules/'

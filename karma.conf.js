@@ -40,11 +40,16 @@ module.exports = function(config) {
         'systemjs.config.js'
     ],
 
+    proxies: {
+        '/': '/base/'
+    },
+
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'test/**/*.js': ['babel']
+        'test/**/*.js': ['babel'],
+        'src/**/*.js': ['babel', 'coverage']
     },
 
     babelPreprocessor: {
@@ -58,7 +63,20 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'progress'],
+    reporters: ['coverage', 'progress'],
+
+    coverageReporter: {
+        instrumenters: { isparta: require('isparta') },
+        instrumenter: {
+            'src/*.js': 'isparta'
+        },
+        reporters: [{
+            type: 'text-summary'
+        },{
+            type: 'html',
+            dir: 'report/coverage/'
+        }]
+    },
 
 
     // web server port
