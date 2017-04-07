@@ -19,7 +19,6 @@ module.exports = function(config) {
         { pattern: 'node_modules/zone.js/dist/zone.js', included: true, watched: false },
         { pattern: 'node_modules/reflect-metadata/Reflect.js', included: true, watched: false },
         { pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: false },
-
         {
             pattern: 'node_modules/**/*.js',
             watched: false,
@@ -31,13 +30,7 @@ module.exports = function(config) {
             pattern: 'test/**/*.js',
             included: false
         },
-        'test/systemjs.config.js'
-    ],
-
-
-    // list of files to exclude
-    exclude: [
-        'systemjs.config.js'
+        { pattern: 'karma-systemjs.config.js', include: true, watched: true }
     ],
 
     proxies: {
@@ -48,6 +41,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'karma-systemjs.config.js': ['babel'],
         'test/**/*.js': ['babel'],
         'src/**/*.js': ['babel', 'coverage']
     },
@@ -89,7 +83,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
